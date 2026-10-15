@@ -1,0 +1,214 @@
+{
+  "info": {
+    "name": "PetClinic API Testing — Starter",
+    "description": "Starter collection for Exercise 01. Request 1 is solved; requests 2-6 are TODOs. Extend me.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9966/petclinic"
+    },
+    {
+      "key": "ownerId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "1 - List all owners (solved example)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/owners",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "owners"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status is 200', () => pm.response.to.have.status(200));",
+              "pm.test('returns an array', () => {",
+              "  const body = pm.response.json();",
+              "  pm.expect(body).to.be.an('array');",
+              "  pm.expect(body.length).to.be.above(0, 'seed data should contain owners');",
+              "});",
+              "pm.test('responds quickly', () => pm.expect(pm.response.responseTime).to.be.below(1000));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2 - Get owner by ID (TODO)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/owners/{{ownerId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "owners",
+            "{{ownerId}}"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// TODO: assert status 200 and that the body contains firstName/lastName/telephone",
+              "pm.test('status is 200', () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3 - Get unknown owner 999999 (TODO)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/owners/999999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "owners",
+            "999999"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// TODO: assert the API returns 404 for a non-existent owner"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "4 - Create owner (TODO)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \"firstName\": \"Test\",\\n  \"lastName\": \"Student\",\\n  \"address\": \"5 Computing Drive\",\\n  \"city\": \"Singapore\",\\n  \"telephone\": \"91234567\"\\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/owners",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "owners"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// TODO: assert creation status, then capture the new id:",
+              "// const id = pm.response.json().id;",
+              "// pm.collectionVariables.set('ownerId', id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "5 - Update owner (TODO)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \"firstName\": \"Updated\",\\n  \"lastName\": \"Student\",\\n  \"address\": \"5 Computing Drive\",\\n  \"city\": \"Singapore\",\\n  \"telephone\": \"91234567\"\\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/owners/{{ownerId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "owners",
+            "{{ownerId}}"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// TODO: assert the update status, then re-GET the owner and prove firstName is \"Updated\""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "6 - Delete owner (TODO)",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/api/owners/{{ownerId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "owners",
+            "{{ownerId}}"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// TODO: assert the delete status, then GET the owner again and prove it now returns 404"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

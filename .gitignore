@@ -24,3 +24,20 @@ springboot-petclinic-server/
 
 # newman reports
 ./src/test/postman/reports/
+
+# --- Testing artifacts (event additions) ---
+# Newman / Postman runner
+src/test/postman/reports/
+**/my-report.html
+# JMeter
+*.jtl
+dashboard/
+# Allure
+allure-results/
+allure-report/
+# Python (UI automation exercise)
+.venv/
+__pycache__/
+*.py[cod]
+# Node (frontend tooling)
+node_modules/

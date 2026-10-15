@@ -16,14 +16,6 @@ public class PetAgeValidator implements ConstraintValidator<PetAgeValidation, Lo
 
         LocalDate today = LocalDate.now();
 
-        if (birthDate.isAfter(today)) {
-            context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate(
-                "Birth date cannot be in the future"
-            ).addConstraintViolation();
-            return false;
-        }
-
         if (birthDate.isBefore(today.minusYears(50))) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(

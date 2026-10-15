@@ -8,6 +8,8 @@ extend.
 > Forked from [spring-petclinic/spring-petclinic-rest](https://github.com/spring-petclinic/spring-petclinic-rest) (Apache 2.0).
 > The original `readme.md` (kept unchanged) documents every endpoint in detail.
 
+> ⚠️ **CHALLENGE BUILD** — this branch (`challenge`) contains **six seeded defects** for the bug hunt. Read [CHALLENGE.md](CHALLENGE.md) before starting. The clean build lives on `master`.
+
 ## Repository Map
 
 | Path | What it is |

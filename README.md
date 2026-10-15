@@ -15,6 +15,10 @@ extend.
 | `src/main/java/...` | The Spring Boot REST API — owners, pets, vets, visits, pet types, specialties, users (full CRUD) |
 | `src/main/resources/openapi.yml` | **The API contract** — OpenAPI 3.1 spec the server code is generated from |
 | `src/test/postman/` | Bundled Postman/Newman non-regression suite + environment files |
+| `exercises/` | Self-contained practice briefs — API, performance, UI automation |
+| `docs/` | [Architecture overview](docs/architecture.md) and the [testing guide](docs/testing-guide.md) |
+| `CONTRIBUTING.md` | How to submit tests and fixes (branch naming, Conventional Commits, PR rules) |
+| `CHANGELOG.md` | What changed, per version — and how this fork diverges from upstream |
 | `postman-tests.sh` | One-shot runner for the Newman suite (macOS/Linux) |
 | `readme.md` | Original upstream README — full endpoint reference table |
 | `pom.xml`, `mvnw` | Build definition + Maven wrapper (no separate Maven install needed) |
@@ -126,6 +130,21 @@ Restart the app — every endpoint now requires basic auth. Seeded user:
 | `VET_ADMIN` | vets, specialties, pet types |
 | `ADMIN` | users (`POST /api/users` creates new users) |
 
+## 5. Exercises
+
+Structured practice briefs live in [exercises/](exercises/README.md):
+
+| # | Topic | Tooling |
+| --- | --- | --- |
+| [01](exercises/01-api-testing/README.md) | API testing | Postman + Newman |
+| [02](exercises/02-performance-testing/README.md) | Performance baseline | JMeter |
+| [03](exercises/03-ui-automation/README.md) | UI automation *(optional)* | Selenium + pytest + Allure |
+
+Reports you generate (Newman HTML, `.jtl`, Allure) are **artifacts —
+gitignored, never committed**; attach them to your PR instead. Found a
+product bug? File it via the **Bug report** issue template — real tracker,
+real practice.
+
 ## Things to Test (Ideas)
 
 - CRUD happy paths for each resource; 404 on unknown IDs; 400 on invalid bodies
@@ -148,4 +167,4 @@ Restart the app — every endpoint now requires basic auth. Seeded user:
 ## Credits
 
 Application: the Spring team's [Spring PetClinic REST](https://github.com/spring-petclinic/spring-petclinic-rest) sample, Apache License 2.0.
-This README is the student-facing quickstart; see `readme.md` for the complete upstream documentation and endpoint list.
+This README is the student-facing quickstart; see `readme.md` for the complete upstream documentation and endpoint list, and [CHANGELOG.md](CHANGELOG.md) for how this fork diverges.
